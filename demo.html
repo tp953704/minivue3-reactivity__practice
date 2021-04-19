@@ -1,0 +1,17 @@
+<div id="app">{{msg}}</div>
+
+<script src="./mini-vue3.js"></script>
+<script>
+  // 定義響應數據
+  const state = reactive({
+    msg:'message'
+  })
+  // 每次跟新修改DOM
+  effect(()=>{
+    document.getElementById('app').innerText = state.msg
+  })
+//    定時響應跟新
+  setInterval(()=>{
+    state.msg = 'message' + Math.random()
+  },1000)
+</script>
